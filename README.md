@@ -45,7 +45,7 @@ Set paths to datasets and desired log directories in ```config.py```
 We use DomainNet and our created Semantic Shift Benchmark Corruption (SSB-C) datasets:
 
 * [DomainNet](https://ai.bu.edu/M3SDA/)
-* [SSB-C]() (Look for a place to upload ~20GB of storage. Stay tuned!)
+* [SSB-C](https://connecthkuhk-my.sharepoint.com/:u:/g/personal/hjwang_connect_hku_hk/EeeL3WQ0zWdEsXhmmYeHBUUBnNVpNWbVm7mVA-jiyNVnNw?e=Dc4pWl)
 
 ### Checkpoints
 Download the checkpints of **HiLo** for different datasets / combination (**only used during evaluation**).
