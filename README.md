@@ -19,7 +19,7 @@
 
 ## Prerequisite 🛠️
 
-First, you need to clone the SPTNet repository from GitHub. Open your terminal and run the following command:
+First, you need to clone the HiLo repository from GitHub. Open your terminal and run the following command:
 
 ```
 git clone https://github.com/Visual-AI/HiLo.git
