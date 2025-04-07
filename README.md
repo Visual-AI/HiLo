@@ -55,14 +55,15 @@ Download the checkpints of **HiLo** for different datasets / combination (**only
 
 **Eval the model**
 ```
-python evaluate.py \
+python -m methods.ours.evaluate \
     --dataset_name domainnet \
     --src_env 'real' \
     --aux_env 'painting' \
+    --tgt_env 'sketch' \
     --checkpoint_path /path/to/checkpoint.pt \
     --task_type 'A_L+A_U+B->A_U+B+C'
 ```
-To reproduce all main results in the paper, just change the name (``dataset_name``), (``aux_env``) and its corresponding path (``checkpoint_path``) to the pretrained model you downloaded from the above link.
+To reproduce all main results in the paper, just change the name (``dataset_name``), (``aux_env``), (``tgt_env``) and its corresponding path (``checkpoint_path``) to the pretrained model you downloaded from the above link.
 
 **Train the model**:
 
