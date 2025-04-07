@@ -13,7 +13,7 @@ WEIGHTS_PATH=/disk/work/hjwang/HiLo/data/ssbc/cubc.json
 for d in ${!DATASETS[@]}; do
     for t in ${!TASKs[@]}; do
         echo ${DATASETS[$d]}
-        ${PYTHON} -m methods.PMTrans.mi_dis_pm \
+        ${PYTHON} -m methods.ours.mi_dis_pm \
                     --dataset_name ${DATASETS[$d]} \
                     --batch_size 150 \
                     --grad_from_block 11 \
