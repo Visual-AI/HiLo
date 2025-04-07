@@ -121,6 +121,8 @@ def main():
     
     # Evaluate on domain C (target domains)
     test_loaders = []
+    args.only_test = True
+    
     if args.dataset_name == 'domainnet':
         ovr_envs.remove(args.src_env)
         if args.task_type == 'A_L+A_U+B->A_U+B+C':
