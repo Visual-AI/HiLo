@@ -22,10 +22,16 @@ parser.add_argument('--src_env', type=str)
 parser.add_argument('--tgt_env', type=str)
 parser.add_argument('--aux_env', type=str, default=None)
 parser.add_argument('--task_type', type=str, default='A_L+A_U->B')
-parser.add_argument('--checkpoint_path', type=str, help='Path to the model checkpoint')
+parser.add_argument('--checkpoint_path', type=str)
 parser.add_argument('--batch_size', default=256, type=int)
 parser.add_argument('--num_workers', default=8, type=int)
-parser.add_argument('--eval_funcs', nargs='+', help='Which eval functions to use', default=['v2', 'v2p'])
+parser.add_argument('--eval_funcs', nargs='+', help='Which eval functions to use', default=['v2'])
+parser.add_argument('--pre_splits', type=str2bool, default=False)
+parser.add_argument('--model', type=str, default='dino')
+parser.add_argument('--grad_from_block', type=int, default=11)
+parser.add_argument('--prop_train_labels', type=float, default=0.5)
+parser.add_argument('--use_partial_dataset', type=str2bool, default=False)
+parser.add_argument('--only_test', type=str2bool, default=False)
 
 # Model parameters
 parser.add_argument('--use_ssb_splits', type=str2bool, default=True)
@@ -75,7 +81,7 @@ def main():
     # Load checkpoint
     if os.path.exists(args.checkpoint_path):
         print(f"Loading checkpoint from {args.checkpoint_path}")
-        model.load_state_dict(torch.load(args.checkpoint_path))
+        model.load_state_dict(torch.load(args.checkpoint_path), strict=False)
     else:
         raise FileNotFoundError(f"Checkpoint not found at {args.checkpoint_path}")
     
