@@ -23,7 +23,7 @@ for d in ${!DATASETS[@]}; do
             for ee in ${!ENVs2[@]}; do
                 if [ ${ENVs1[$e]} != ${ENVs2[$ee]} ]; then
                     echo ${ENVs1[$e]} ${ENVs2[$ee]} others
-                    ${PYTHON} -m methods.PMTrans.mi_dis_pm \
+                    ${PYTHON} -m methods.ours.mi_dis_pm \
                                 --dataset_name 'domainnet' \
                                 --batch_size 128 \
                                 --grad_from_block 11 \
