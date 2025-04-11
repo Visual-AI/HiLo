@@ -68,8 +68,8 @@ To reproduce all main results in the paper, just change the name (``dataset_name
 **Train the model**:
 
 ```
-bash scripts/mi_pmtrans/domainnet.sh
-bash scripts/mi_pmtrans/ssbc.sh
+bash scripts/mi_pmtrans/domainnet.sh 0
+bash scripts/mi_pmtrans/ssbc.sh 0
 ```
 Just be aware to make necessary changes (e.g., ``PYTHON``, ``SAVE_DIR``, ``WEIGHTS_PATH``, etc).
 
