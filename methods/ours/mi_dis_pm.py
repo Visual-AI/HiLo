@@ -341,7 +341,7 @@ if __name__ == "__main__":
             weight_dict = json.load(f)
 
         # Select weights based on epoch
-        epoch_key = 'pre' if epoch > 80 else 'post'
+        epoch_key = 'post' if epoch > 80 else 'pre'
         sample_weights = torch.DoubleTensor(weight_dict[epoch_key])
         sample_weights = torch.DoubleTensor(sample_weights)
         sampler = torch.utils.data.WeightedRandomSampler(sample_weights, num_samples=len(train_dataset))
