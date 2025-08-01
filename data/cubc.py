@@ -183,9 +183,9 @@ class MergedCubC(Dataset):
 
     def __getitem__(self, idx):
 
-        sev = str(idx // (len(self.data) * len(distortions))+1)
-        dist = distortions[idx // len(self.data) % len(distortions)]
-        sample = self.data.iloc[idx-((int(sev)-1)*len(self.data)*len(distortions)+(idx//len(self.data))*len(self.data))]
+        sev = str((idx // (len(self.data) * len(distortions))) + 1)
+        dist = distortions[(idx // len(self.data)) % len(distortions)]
+        data_idx = idx % len(self.data)
 
         path = os.path.join(self.root, dist, sev, sample.filepath)
         target = sample.target - 1  # Targets start at 1 by default, so shift to 0
