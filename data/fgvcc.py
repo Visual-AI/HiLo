@@ -347,9 +347,9 @@ class MergedFGVCcAircraft(Dataset):
             tuple: (sample, target) where target is class_index of the target class.
         """
 
-        sev = str(index // (len(self.samples) * len(distortions))+1)
-        dist = distortions[index // len(self.samples) % len(distortions)]
-        ori_path, target = self.samples[index-((int(sev)-1)*len(self.samples)*len(distortions)+(index//len(self.samples))*len(self.samples))]
+        sev = str((index // (len(self.samples) * len(distortions))) + 1)
+        dist = distortions[(index // len(self.samples)) % len(distortions)]
+        sample_idx = index % len(self.samples)
         
         _, file_name = os.path.split(ori_path)
         path = os.path.join(self.root, dist, sev, file_name)
