@@ -157,11 +157,13 @@ class MergedCarscDataset(Dataset):
         self.target_transform = None
 
     def __getitem__(self, idx):
-        sev = str(idx // (len(self.data_idx) * len(distortions))+1)
-        dist = distortions[idx // len(self.data_idx) % len(distortions)]
-        data_idx = self.data_idx[idx-((int(sev)-1)*len(self.data_idx)*len(distortions)+(idx//len(self.data_idx))*len(self.data_idx))]
+        sev = str((idx // (len(self.data_idx) * len(distortions))) + 1)
+        dist = distortions[(idx // len(self.data_idx)) % len(distortions)]
+        data_idx = idx % len(self.data_idx)
+        
+        data_idx_name = self.data_idx[data_idx]
 
-        path = os.path.join(self.data_dir, dist, sev, data_idx)
+        path = os.path.join(self.data_dir, dist, sev, data_idx_name)
 
         image = self.loader(path)
         target = self.target[idx%len(self.data_idx)] - 1
